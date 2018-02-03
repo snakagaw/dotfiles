@@ -2,6 +2,7 @@ set number
 set expandtab 
 set encoding=utf-8
 set nobackup
+set noswapfile
 
 " mac 用. バックスペースと, 円記号の入れ替え
 noremap! ¥ \
@@ -22,12 +23,8 @@ set softtabstop=0
 if has("autocmd")
     filetype plugin on
     filetype indent on
-    autocmd FileType c          setlocal sw=4 sts=4 st=4 et
-    autocmd FileType html       setlocal sw=4 sts=4 st=4 et
-    autocmd FileType ruby       setlocal sw=4 sts=4 st=4 et
-    autocmd FileType js         setlocal sw=2 sts=2 st=2 et
-    autocmd FileType python     setlocal sw=4 sts=4 st=4 et
-    autocmd FileType json       setlocal sw=4 sts=4 st=4 et
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 endif
 " インデント終わり
 
@@ -44,6 +41,7 @@ Plug 'davidhalter/jedi-vim', {'for': ['python']}
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 autocmd FileType python BracelessEnable +fold
 Plug 'everzet/phpfolding.vim', {'for': ['php']}
+Plug 'lervag/vimtex', {'for': ['tex']}
 
 call plug#end()
 
