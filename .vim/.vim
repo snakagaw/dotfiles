@@ -1,0 +1,1 @@
+/Users/nakagawasohei/dotfiles/.vim
