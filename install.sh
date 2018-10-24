@@ -10,3 +10,4 @@ ln -sf ~/dotfiles/zsh/zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/zsh/zprofile ~/.zprofile
 ln -sf ~/dotfiles/zsh/zshenv ~/.zshenv
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/dotfiles/finicky.json ~/.finicky.json
