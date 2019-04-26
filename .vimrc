@@ -5,8 +5,8 @@ set nobackup
 set noswapfile
 
 " mac 用. バックスペースと, 円記号の入れ替え
-noremap! ¥ \
-noremap! \ ¥
+"noremap! ¥ \
+"noremap! \ ¥
 
 " インデント
 set autoindent 

@@ -1,0 +1,100 @@
+#########
+# PATH 
+########
+
+$PATH.extend([
+    "/usr/local/opt/openssl/bin",
+    "/usr/local/bin",
+    "/usr/local/sbin",
+    "/usr/local/opt/llvm/bin",  
+    "/usr/local/bin/npm/bin",
+    "/usr/local/opt/libxml2/bin",
+    "/Library/TeX/texbin",
+    "/usr/sbin",
+    "/sbin",
+    "~/bin",
+    "/usr/local/opt/elasticsearch@5.6/bin",
+])
+
+source-bash $(rbenv init -)
+
+# vi風の操作
+$VI_MODE = False
+# Ctrl + D で終了しない
+$IGNOREEOF = True
+
+# 補完時に大小区別しない
+$CASE_SENSITIVE_COMPLETIONS = True 
+# 補完選択Enterで即実行しない
+$COMPLETIONS_CONFIRM = True
+# 連続重複コマンドを保存しない
+# $HISTCONTROL = (ignoredups)
+# 括弧を補完
+$XONSH_AUTOPAIR = True
+# ディレクトリ名を入力すればcdできる
+$AUTO_CD = True
+# エラー全て吐くように
+$XONSH_SHOW_TRACEBACK = True
+$XONSH_TRACEBACK_LOGFILE = ".xonsh_log"
+
+# プロンプトの設定タイムアウトのメッセージ抑制
+$SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
+
+$UPDATE_COMPLETIONS_ON_KEYPRESS = True
+
+$AUTO_SUGGEST_IN_COMPLETIONS = True
+
+# 見た目ウザかったら切か変更する
+# 参考:http://xon.sh/tutorial.html#customizing-the-prompt
+# プロンプト上には場所だけ出す
+$PROMPT = "\n{INTENSE_BLACK}{cwd}{BLUE} \n❯ {NO_COLOR}"
+
+$RIGHT_PROMPT = "\n{gitstatus}"
+
+#$BOTTOM_TOOLBAR = "hogehoge"
+
+# lsコマンドの結果の見た目
+$LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
+
+
+
+
+# カラーテーマ
+# 自分はdefaultでiTerm2側の設定を利用
+# xonfig styles コマンドで全てのスタイル表示
+# 良さげなのだと'native'
+$XONSH_COLOR_STYLE = 'default'
+
+
+# Shell上のシンタックスハイライト強調表示
+$COLOR_INPUT = True
+
+# コマンド実行の戻り値にもシンタックスハイライト
+$COLOR_RESULTS = True
+
+# インデント文字列
+# 空白4つとかTabとか任意に
+$INDENT = "    "
+
+# 改行した時にでてくる左端の文字
+# 指定された長さ以下だった場合は繰り返し表示される
+$MULTILINE_PROMPT = "."
+
+
+# プロンプトのサブプロセス、書式設定などのタイムアウト
+$VC_BRANCH_TIMEOUT = 0.1
+
+# プロンプトの設定タイムアウトのメッセージ抑制
+$SUPPRESS_BRANCH_TIMEOUT_MESSAGE = False
+
+# MercurialのbranchをTerminalに表示するか
+$VC_HG_SHOW_BRANCH = True
+
+
+# エラーが出たときトレースバックを表示するかどうか
+$XONSH_SHOW_TRACEBACK = False
+
+
+# PROMPTのエラー表示版
+$XONSH_STDERR_POSTFIX
+$XONSH_STDERR_PREFIX
