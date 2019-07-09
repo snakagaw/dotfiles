@@ -2,7 +2,8 @@
 # PATH 
 ########
 
-$PATH.extend([
+$PATH = [
+    "/usr/sbin",
     "/usr/local/opt/openssl/bin",
     "/usr/local/bin",
     "/usr/local/sbin",
@@ -10,13 +11,13 @@ $PATH.extend([
     "/usr/local/bin/npm/bin",
     "/usr/local/opt/libxml2/bin",
     "/Library/TeX/texbin",
-    "/usr/sbin",
     "/sbin",
     "~/bin",
     "/usr/local/opt/elasticsearch@5.6/bin",
-])
+] + $PATH
 
 source-bash $(rbenv init -)
+# eval "$(rbenv init -)"
 
 # vi風の操作
 $VI_MODE = False
@@ -44,12 +45,15 @@ $UPDATE_COMPLETIONS_ON_KEYPRESS = True
 
 $AUTO_SUGGEST_IN_COMPLETIONS = True
 
-# 見た目ウザかったら切か変更する
+# prompt 変更 
 # 参考:http://xon.sh/tutorial.html#customizing-the-prompt
-# プロンプト上には場所だけ出す
 $PROMPT = "\n{INTENSE_BLACK}{cwd}{BLUE} \n❯ {NO_COLOR}"
 
+# prompt の右端
 $RIGHT_PROMPT = "\n{gitstatus}"
+
+# ウインドウのタイトルを変更
+$TITLE = "{cwd} | {current_job}"  
 
 #$BOTTOM_TOOLBAR = "hogehoge"
 
@@ -98,3 +102,8 @@ $XONSH_SHOW_TRACEBACK = False
 # PROMPTのエラー表示版
 $XONSH_STDERR_POSTFIX
 $XONSH_STDERR_PREFIX
+
+@events.on_exit
+def say_goodbye():
+    source-bash $(exit)
+    print ('goodbye!')

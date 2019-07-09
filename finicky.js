@@ -1,4 +1,21 @@
-finicky.setDefaultBrowser('org.mozilla.firefox');
+ module.exports = {
+   defaultBrowser: "Firefox",
+   options: {
+     hideIcon: false
+   },
+   handlers: [
+     {
+       match: finicky.matchDomains('example.com'),
+       browser: "Firefox"
+     },{
+       match: finicky.matchDomains([
+         /(drive|docs|mail|script|calendar)\.google\.com$/
+       ]),
+       browser: "Google Chrome"
+     }
+   ]
+ }
+
 
 // Open social network links in Google Chrome
 // finicky.onUrl(function(url, opts) {
@@ -10,13 +27,6 @@ finicky.setDefaultBrowser('org.mozilla.firefox');
 // });
 
 // Open google apps in Chrome
-finicky.onUrl(function(url, opts) {
-  if (url.match(/^https?:\/\/(drive|docs|mail|script|calendar)\.google.com/)) {
-    return {
-      bundleIdentifier: "com.google.Chrome"
-    };
-  }
-});
 
 // finicky.onUrl(function(url, opts) {
 //   return {
