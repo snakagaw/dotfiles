@@ -53,6 +53,9 @@ path=(
   /sbin
   ~/bin
   /usr/local/opt/elasticsearch@5.6/bin
+  /usr/local/opt/openldap/sbin
+  /Users/nakagawasohei/Library/Python/3.7/bin
+  ~/.nodebrew/current/bin
   $path
 )
 

@@ -1,29 +1,28 @@
-finicky.setDefaultBrowser('org.mozilla.firefox');
-
-// Open social network links in Google Chrome
-// finicky.onUrl(function(url, opts) {
-//   if (url.match(/^https?:\/\/(youtube|facebook|twitter|linkedin)\.com/)) {
-//     return {
-//       bundleIdentifier: "com.google.Chrome"
-//     };
-//   }
-// });
-
-// Open google apps in Chrome
-finicky.onUrl(function(url, opts) {
-  if (url.match(/^https?:\/\/(drive|docs|mail|script|calendar)\.google.com/)) {
-    return {
-      bundleIdentifier: "com.google.Chrome"
-    };
-  }
-});
-
-// finicky.onUrl(function(url, opts) {
-//   return {
-//     bundleIdentifier: [
-//       "org.mozilla.firefox",
-//       "com.apple.Safari",
-//       "com.google.Chrome"
-//     ]
-//   };
-// });
+module.exports = {
+  defaultBrowser: 'Firefox',
+  rewrite: [],
+  handlers: [
+    {
+      // Open apple.com and example.org urls in Safari
+      match: ['apple.com*', 'example.org*'],
+      browser: 'Safari',
+    },
+    {
+      // Open any url that includes the string "workplace" in Firefox
+      match: /workplace/,
+      browser: 'Firefox',
+    },
+    {
+      // Open google.com and *.google.com urls in Google Chrome
+      match: [
+        'google.com*', // match google.com domain as string (to make regular expression less complicated)
+        '*.google.com*', // match all google.com subdomains
+      ],
+      browser: 'Google Chrome',
+    },
+    {
+      match: /zoom.us\/j\//,
+      browser: 'us.zoom.xos',
+    },
+  ],
+};
