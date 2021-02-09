@@ -11,10 +11,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # disable auto correct
 alias bundle='nocorrect bundle'
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+
 
 # Customize to your needs...
 autoload -Uz compinit
@@ -25,4 +22,17 @@ compinit -u
 if [ -d ${HOME}/.rbenv ]; then
   export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init -)"
+fi
+
+
+
+# Glob展開をさせない
+setopt +o nomatch 
+
+# julia precompile alias
+# alias julia='julia -J/Users/nakagawasohei/.sys_plots.so'
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi

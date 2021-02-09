@@ -3,8 +3,14 @@ module.exports = {
   rewrite: [],
   handlers: [
     {
+        // Open google search link from Spotlight in Firefox
+        match: ({ sourceBundleIdentifier }) =>
+            sourceBundleIdentifier === 'com.apple.Spotlight',
+        browser: 'Firefox'
+    },
+    {
       // Open apple.com and example.org urls in Safari
-      match: ['apple.com*', 'example.org*'],
+      match: ['apple.com*', 'icloud.com'],
       browser: 'Safari',
     },
     {
@@ -18,10 +24,13 @@ module.exports = {
         'google.com*', // match google.com domain as string (to make regular expression less complicated)
         '*.google.com*', // match all google.com subdomains
       ],
-      browser: 'Google Chrome',
+      browser: {
+          name: 'Google Chrome',
+//           profile: 'sn1115'
+      }
     },
     {
-      match: /zoom.us\/j\//,
+      match: finicky.matchDomains(/.*\.zoom.us/), 
       browser: 'us.zoom.xos',
     },
   ],

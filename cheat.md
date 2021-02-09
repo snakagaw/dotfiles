@@ -6,6 +6,9 @@
 
 `postgres -D /usr/local/var/postgres/`
 
+### elasticsearch 全件削除
+`curl -XDELETE 'http://localhost:9200/*'`
+
 
 ## 環境構築
 ### 設定ファイルのインストール
@@ -17,6 +20,10 @@
 ### zprezto のインストール
 
 `git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"`
+
+#### アップグレード
+`cd .zprezto` 
+` git pull && git submodule update --init --recursive`
 
 ### 環境設定ファイルのエイリアスを登録
 ```

@@ -43,21 +43,27 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/opt/openssl/bin
+  /usr/local/opt/coreutils/libexec/gnubin
+  $PYENV_ROOT/bin
+  /usr/local/opt/libiconv/bin
+  /usr/local/opt/postgresql@12/bin
   /usr/local/{bin,sbin}
-  /usr/local/opt/llvm/bin  
+  /usr/local/opt/openssl/bin
+  /usr/local/opt/llvm/bin
   /usr/local/bin/npm/bin
   /usr/local/opt/libxml2/bin
   /Library/TeX/texbin
   /usr/sbin
   /sbin
   ~/bin
-  /usr/local/opt/elasticsearch@5.6/bin
   /usr/local/opt/openldap/sbin
-  /Users/nakagawasohei/Library/Python/3.7/bin
   ~/.nodebrew/current/bin
+  /Users/nakagawasohei/Documents/Cluster/Murase_programs/listdata_analysis/
   $path
 )
+
+export PYENV_ROOT="$HOME/.pyenv"
+eval "$(pyenv init -)"
 
 #
 # Less
@@ -74,3 +80,13 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 #  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 #  echo 'export PATH=$PATH:/usr/local/Cellar/llvm/HEAD-1d6becb/bin' >> .zshrc
 #fi
+# export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+# export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+export CFLAGS="-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+export CCFLAGS="-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+export CXXFLAGS="-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+export CPPFLAGS="-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+
+export PHITSPATH=/Users/nakagawasohei/Applications/phits
+export PATH=$PHITSPATH/bin:$PHITSPATH/dchain-sp/bin:$PATH
